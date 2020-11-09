@@ -2,6 +2,7 @@
 In this workshop, you will build 2 AWS Lambda Functions. One AWS Lambda Function (as the producer) will dispatch events, and one AWS Lambda Function (as the consumer) to receive events. In addition to receiving events, Consumer will also print logs to AWS CloudWatch Logs to ensure the flow is going well.
 
 ## Diagram
+![Lab 1 Diagram](https://raw.githubusercontent.com/donnieprakoso/workshop-eventDrivenMicroservices/master/1-lab-basicDispatchConsumeEvent/lab1-diagram.png?token=AALFYDTW4WUJVSDMPTDZX4C7WKOFO)
 
 ## Tasks
 These are the tasks that you need to complete. If at some point you are stuck, please refer to the primary reference located at `source/` folder. 

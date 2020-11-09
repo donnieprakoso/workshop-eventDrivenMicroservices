@@ -38,8 +38,8 @@ If this is your first time using this workshop, this section is an important pie
 **Workshop Requirements**
 
 Requirement | Link | Notes  
-========|=======|========
-Active AWS Account | [Link](https://aws.amazon.com/) |   
+========|=======|========  
+Active AWS Account | [Link](https://aws.amazon.com/) |  Mandatory requirements   
 AWS CDK | [Link](https://aws.amazon.com/cdk/) |Require Node JS   
 AWS CLI | [Link](https://aws.amazon.com/cli/) |Require active    AWS account. Please configure your account as described on this    [page](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).   
 Python 3.8 | [Link](https://www.python.org/downloads/release/python-380/) |Most of the workshop will be using Python 3.8   
