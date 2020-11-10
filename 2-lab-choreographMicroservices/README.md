@@ -9,7 +9,15 @@ You will build an HTTP API with Amazon API Gateway, and AWS Lambda Function. In 
 ## Tasks
 These are the tasks that you need to complete. If at some point you are stuck, please refer to the primary reference located at `source/` folder. 
 
-### Step 0: Work Folder Structure
+### Step 0: Prepare work folder and boto3
+#### Install boto3 library
+- Open your terminal
+- Run this command
+```bash
+pip install boto3
+```
+
+#### Preparing work folder
 - Navigate to `work/` folder
 - You will find 2 sub-directories named `cdk` and `lambda-functions`
 - Navigate to `work/lambda-functions/` 
