@@ -71,15 +71,7 @@ class CdkStack(core.Stack):
         '''
         [TASK] Define Amazon EventBridge Rule
         '''
-        _eb.Rule(
-            self,
-            id="lab1-bdc-eventRule",
-            description="A basic rule sample",
-            enabled=True,
-            event_bus=eb,
-            event_pattern=eb_pattern,
-            rule_name="BDC-BasicDispatchConsume",
-            targets=[_ebt.LambdaFunction(handler=fnLambda_consume)])
+
 
 '''
 [TASK] Tag your AWS CDK App

@@ -55,6 +55,9 @@ class CdkStack(core.Stack):
             role=lambda_role,
             runtime=aws_lambda.Runtime.PYTHON_3_8)
 
+        '''
+        [INFO] This is a sample how to define the task and integrate with Lambda Functions. You need to create another 2 tasks for respective Lambda functions
+        '''
         task_verify_identity = _tasks.LambdaInvoke(
             self,
             "Verify Identity Document",
@@ -62,29 +65,21 @@ class CdkStack(core.Stack):
             output_path="$.Payload"
         )
 
-        task_check_address = _tasks.LambdaInvoke(
-            self,
-            "Check Address",
-            lambda_function=fn_lambda_check_address,
-            output_path="$.Payload"
-        )
+        '''
+        [TASK] Create task and integrate with check address service
+        '''
 
-        task_wait_review = _tasks.LambdaInvoke(
-            self,
-            "Wait for Review",
-            lambda_function=fn_lambda_approve_reject,
-            output_path="$.Payload"
-        )
+        '''
+        [TASK] Create task and integrate with approve/reject service
+        '''
 
-        state_approve = _sfn.Succeed(self, "Approve Application")
-        state_reject = _sfn.Succeed(self, "Reject Application")
+        '''
+        [TASK] Create two states for approve and reject. There states need to use Success type and named "Approve Application" and "Reject Application"
+        '''
 
-        # Let's define the State Machine, step by step
-        # First, paralell tasks for verification
-
-        s_verification = _sfn.Parallel(self, "Verification")
-        s_verification.branch(task_verify_identity)
-        s_verification.branch(task_check_address)
+        '''
+        [TASK] Create a parallel for task_verify_identity and task_check_address
+        '''
 
         # Next, we add a choice state
         c_human_review = _sfn.Choice(self, "Human review required?")
@@ -93,7 +88,7 @@ class CdkStack(core.Stack):
                 _sfn.Condition.boolean_equals("$[0].humanReviewRequired",
                                               False),
                 _sfn.Condition.boolean_equals("$[1].humanReviewRequired",
-                                              False)), state_approve)
+                                              True)), state_approve)
         c_human_review.when(
             _sfn.Condition.or_(
                 _sfn.Condition.boolean_equals("$[0].humanReviewRequired",
@@ -113,11 +108,10 @@ class CdkStack(core.Stack):
         task_wait_review.next(c_review_approved)
 
         definition = s_verification.next(c_human_review)
-        _sfn.StateMachine(
-            self,
-            "lab3-statemachine",
-            definition=definition,
-            timeout=core.Duration.minutes(5))
+
+        '''
+        [TASK] Create a state machine and use the definition and timeout of 5 mins. 
+        '''
 
 
 app = core.App()

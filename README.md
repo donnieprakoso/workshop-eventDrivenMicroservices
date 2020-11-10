@@ -32,7 +32,7 @@ You will learn how to use AWS Step Functions to build a state machine for orches
 
 ---
 
-## First Thing First
+## 🛑 First Thing First
 If this is your first time using this workshop, this section is an important piece that you need to read before moving on.
 
 ⚠️
@@ -64,10 +64,10 @@ As a summary, here's a quick checklist to complete the required checking.
 ## Navigating The Workshop
 Lab Name | Level | Duration
 ------------ | ------------- | -------------
-Lab 0 - Requirements Checking | All Levels | 15 mins
-Lab 1 - Basic Dispatch Consume | Beginner | 15 mins
-Lab 2 - Building Choreographed Microservices | Intermediate | 30 mins
-Lab 3 - Orchestrating Microservices | Intermediate | 15 mins
+[Lab 0 - Requirements Checking](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/tree/master/0-requirements-checking) | All Levels | 15 mins
+[Lab 1 - Basic Dispatch Consume](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/tree/master/1-lab-basicDispatchConsumeEvent) | Beginner | 15 mins
+[Lab 2 - Building Choreographed Microservices](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/tree/master/2-lab-choreographMicroservices) | Intermediate | 30 mins
+[Lab 3 - Orchestrating Microservices](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/tree/master/3-lab-orchestrateMicroservices) | Intermediate | 15 mins
 
 ## AWS Services
 Some of the services from AWS that are used in this workshop are as follows:  
