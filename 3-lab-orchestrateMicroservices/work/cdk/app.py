@@ -74,7 +74,7 @@ class CdkStack(core.Stack):
         '''
 
         '''
-        [TASK] Create two states for approve and reject. There states need to use Success type and named "Approve Application" and "Reject Application"
+        [TASK] Create two states for approved and rejected. There states need to use Success type and named "Approve Application" and "Reject Application"
         '''
 
         '''

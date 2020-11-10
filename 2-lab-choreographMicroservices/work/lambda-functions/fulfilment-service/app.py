@@ -31,7 +31,7 @@ def lambda_handler(event, context):
     data['data'] = event['detail']['data']
     save_to_db(data['data']['ID'])
     '''
-    [TASK] Send event as fulfilment_completed to be received by logistic service.
+    [ADDITIONAL TASK] Send event as fulfilment_completed to be received by logistic service.
     '''
 
     response = {'status': 200}

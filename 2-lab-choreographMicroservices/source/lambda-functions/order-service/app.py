@@ -41,9 +41,9 @@ def lambda_handler(event, context):
         ])
         logger.info(response)
         save_to_db(id)
-        response = {'statusCode': 200, 'body': json.dumps("{}")}
+        response = {'statusCode': 200, 'body': json.dumps({"status":"order_created"})}
         return response
     except Exception as e:
         logger.info(e)
-        response = {'statusCode': 500, 'body': json.dumps("{}")}
+        response = {'statusCode': 500, 'body': json.dumps({"status":"order_creation_failed"})} 
         return response
