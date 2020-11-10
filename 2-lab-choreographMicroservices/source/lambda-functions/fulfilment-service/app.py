@@ -3,15 +3,18 @@ import boto3
 import json
 import os
 from datetime import datetime
+import logging
+
 '''
 Lambda func for fulfilment service
 '''
-
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 def save_to_db(id):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(os.getenv("TABLE_NAME"))
-    response = table.update_item(
+    table.update_item(
         Key={'ID': id},
         UpdateExpression="set time_fulfilment_service=:sts",
         ExpressionAttributeValues={
@@ -20,8 +23,8 @@ def save_to_db(id):
 
 
 def lambda_handler(event, context):
-    print(event)
-    print('fulfilment_service is called')
+    logger.info(event)
+    logger.info('fulfilment_service is called')
     client = boto3.client('events')
     data = {}
     data['metadata'] = event['detail']['metadata']

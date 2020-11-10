@@ -116,33 +116,23 @@ class CdkStack(core.Stack):
         fn_lambda_logistic_service.add_environment("TABLE_NAME",
                                                    dynamodb_table.table_name)
 
-        eb_order_created_pattern = _eb.EventPattern(
-            detail_type=["order_created"], )
-        eb_fulfilment_completed_pattern = _eb.EventPattern(
-            detail_type=["fulfilment_completed"], )
-        eb_order_created_rule = _eb.Rule(
-            self,
-            id="lab2-cm-eventRule-order-created",
-            description="Order created event",
-            enabled=True,
-            event_bus=eb,
-            event_pattern=eb_order_created_pattern,
-            rule_name="lab2-OrderCreated",
-            targets=[
-                _ebt.LambdaFunction(handler=fn_lambda_invoice_service),
-                _ebt.LambdaFunction(handler=fn_lambda_fulfilment_service),
-                _ebt.LambdaFunction(handler=fn_lambda_forecasting_service)
-            ])
+        '''
+        [TASK] Create EventBridge pattern for order_created
+        '''
 
-        eb_fulfilment_completed_rule = _eb.Rule(
-            self,
-            id="lab2-cm-eventRule-fulfilment-completed",
-            description="Fulfilment completedevent",
-            enabled=True,
-            event_bus=eb,
-            event_pattern=eb_fulfilment_completed_pattern,
-            rule_name="lab2-FulfilmentCompleted",
-            targets=[_ebt.LambdaFunction(handler=fn_lambda_logistic_service)])
+        '''
+        [TASK] Create EventBridge rule for order_created. Define 3 targets into this rule: invoice service, fulfilment service, forecasting service.
+        '''
+
+        '''
+        [ADDITIONAL TASK] Create EventBridge pattern for fulfilment_completed
+        '''
+        
+        '''
+        [ADDITIONAL TASK] Create EventBridge rule for fulfilment completed. Define 1 target into this rule: invoice service, fulfilment service, forecasting service.
+        '''
+        
+        
         api = _ag.RestApi(
             self,
             id='lab2-cm-api-gateway',

@@ -3,10 +3,13 @@ import boto3
 import os
 import json
 from datetime import datetime
+import logging
+
 '''
 Lambda func for forecasting service
 '''
-
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 def save_to_db(id):
     dynamodb = boto3.resource('dynamodb')
@@ -20,8 +23,8 @@ def save_to_db(id):
 
 
 def lambda_handler(event, context):
-    print(event)
-    print('forecasting_service is called')
+    logger.info(event)
+    logger.info('forecasting_service is called')
     data = event['detail']['data']
     save_to_db(data['ID'])
     response = {'status': 200}

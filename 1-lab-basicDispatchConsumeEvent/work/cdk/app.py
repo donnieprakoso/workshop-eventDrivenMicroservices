@@ -13,21 +13,28 @@ class CdkStack(core.Stack):
 
         # Model all required resources
         
-        ## IAM Roles
+        '''
+        Define IAM role that will be used for AWS Lambda Functions
+        '''
         lambda_role = _iam.Role(
             self,
             id='lab1-bdc-lambda-role',
             assumed_by=_iam.ServicePrincipal('lambda.amazonaws.com'))
 
 
-        ## EventBridge
+        '''
+        Define Amazon EventBridge Construct and also pattern to be included later. 
+        '''
         eb = _eb.EventBus(
             self, id="lab1-bdc-eventbus", event_bus_name="lab1-bdc-eventbus")
         eb_pattern = _eb.EventPattern(
             detail_type=["message-received"],
         )
 
-        ## AWS Lambda Functions
+        '''
+        These lines below define construct for our AWS Lambda Functions. There are 2 Lambda functions that we need to create: dispatch and consume.
+        As the dispatch function need to add environment variable, noticed that we add an env_var into AWS Lambda Function that later could be retrieved within the function. 
+        '''
         fnLambda_dispatch = _lambda.Function(
             self, 
             "lab1-bdc-function-dispatch",
@@ -61,6 +68,9 @@ class CdkStack(core.Stack):
         eb_policy_statement.add_resources(eb.event_bus_arn)
         lambda_role.add_to_policy(eb_policy_statement)
 
+        '''
+        [TASK] Define Amazon EventBridge Rule
+        '''
         _eb.Rule(
             self,
             id="lab1-bdc-eventRule",
@@ -71,8 +81,6 @@ class CdkStack(core.Stack):
             rule_name="BDC-BasicDispatchConsume",
             targets=[_ebt.LambdaFunction(handler=fnLambda_consume)])
 
-app = core.App()
-stack = CdkStack(app, "Lab1-BasicDispatchConsume")
-core.Tags.of(stack).add('Name','Lab1-BasicDispatchConsume')
-
-app.synth()
+'''
+[TASK] Tag your AWS CDK App
+'''

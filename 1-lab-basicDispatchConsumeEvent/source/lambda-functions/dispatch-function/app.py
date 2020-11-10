@@ -11,10 +11,10 @@ def handler(event, context):
     try:                
         client = boto3.client('events')
         payload = {"title":"This is a test message","test":True}
-        response = client.put_events(
+        client.put_events(
             Entries=[
                 {
-                    'Source': 'bdc-function-dispatch',
+                    'Source': 'lab1-bdc-dispatch',
                     'DetailType': 'message-received',
                     'Detail': json.dumps(payload),
                     'EventBusName': os.getenv("EVENT_BUS_NAME")

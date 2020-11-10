@@ -6,7 +6,7 @@ from datetime import datetime
 import logging
 
 '''
-Lambda func for invoice service
+Lambda func for fulfilment service
 '''
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -16,15 +16,23 @@ def save_to_db(id):
     table = dynamodb.Table(os.getenv("TABLE_NAME"))
     table.update_item(
         Key={'ID': id},
-        UpdateExpression="set time_invoice_service=:sts",
+        UpdateExpression="set time_fulfilment_service=:sts",
         ExpressionAttributeValues={
             ':sts': datetime.now().strftime("%m-%d-%Y %H:%M:%S")
         })
 
+
 def lambda_handler(event, context):
     logger.info(event)
-    logger.info('invoice_service is called')
-    data = event['detail']['data'] 
-    save_to_db(data['ID'])
-    response = {'status':200}
+    logger.info('fulfilment_service is called')
+
+    data = {}
+    data['metadata'] = event['detail']['metadata']
+    data['data'] = event['detail']['data']
+    save_to_db(data['data']['ID'])
+    '''
+    [TASK] Send event as fulfilment_completed to be received by logistic service.
+    '''
+
+    response = {'status': 200}
     return response

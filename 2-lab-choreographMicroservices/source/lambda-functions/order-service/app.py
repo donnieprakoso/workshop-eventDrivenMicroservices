@@ -3,15 +3,18 @@ import os
 import json
 import uuid
 from datetime import datetime 
+import logging
+
 '''
 Lambda func for order service
 '''
-
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 def save_to_db(id):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(os.getenv("TABLE_NAME"))
-    response = table.update_item(
+    table.update_item(
         Key={'ID': id},
         UpdateExpression="set time_order_service=:sts",
         ExpressionAttributeValues={
@@ -20,31 +23,13 @@ def save_to_db(id):
 
 
 def lambda_handler(event, context):
-    print(event)
+    logger.info(event)
     try:
         id = str(uuid.uuid4())
         data = {}
         data['metadata'] = {"service": "demo-eventbridge"}
         data['data'] = {}
         data['data']['ID'] = id
-        data['data']['order'] = {
-            'total': 100,
-            'currency': 'SGD',
-            'billing_address': 'Address 12345, Singapore'
-        }
-        data['data']['line_items'] = []
-        ex_item = {
-            'sku': '12345',
-            'item_name': 'Item name testing',
-            'quantity': 1
-        }
-        data['data']['line_items'].append(ex_item)
-        ex_item = {
-            'sku': '23456',
-            'item_name': 'Item name testing',
-            'quantity': 1
-        }
-        data['data']['line_items'].append(ex_item)
         client = boto3.client('events')
         response = client.put_events(Entries=[
             {
@@ -54,11 +39,11 @@ def lambda_handler(event, context):
                 'EventBusName': os.getenv("EVENTBUS_NAME")
             },
         ])
-        print(response)
+        logger.info(response)
         save_to_db(id)
         response = {'statusCode': 200, 'body': json.dumps("{}")}
         return response
     except Exception as e:
-        print(e)
+        logger.info(e)
         response = {'statusCode': 500, 'body': json.dumps("{}")}
         return response
