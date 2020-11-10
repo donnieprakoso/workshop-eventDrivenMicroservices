@@ -6,8 +6,7 @@ cli[npm]="https://nodejs.org/en/"
 cli[cdk]="https://docs.aws.amazon.com/cdk/latest/guide/cli.html"
 cli[aws]="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html"
 cli[curl]="https://curl.haxx.se/download.html"
-cli[artillery]="https://artillery.io/docs/guides/getting-started/installing-artillery.html"
-cli[python]="https://www.python.org/downloads/"
+cli[python3]="https://www.python.org/downloads/"
 
 for i in ${!cli[*]}
 do 
@@ -18,4 +17,6 @@ do
         echo "CLI: ${i} -- OK "
     fi
 done
-
+echo ""
+echo "This script doesn't check if you have properly configured the required tools. "
+echo "Please refer to the section FIRST, THING FIRST on main README.md file for further information."

@@ -40,6 +40,9 @@ pip install boto3
 >**💡 HINT**
 >- Use `update_item()` API to save the data into DynamoDB. You can find the API reference [here](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Table.update_item).
 
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/2-lab-choreographMicroservices/source/lambda-functions/order-service/app.py)
+
 ### Step 4: Create a dictionary as payload data 
 - First, create a dictionary to hold all data passed to Amazon EventBridge and called it `data`  
 		
@@ -66,6 +69,9 @@ pip install boto3
 >- Use `json.dumps()` to convert your dictionary into JSON string. Here's the [info](https://docs.python.org/3/library/json.html).
 >- Use `os.getenv()` to get data from environment variable.
 
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/2-lab-choreographMicroservices/source/lambda-functions/order-service/app.py)
+
 ### Step 6: Call save_to_db() function
 - Lastly, save the data into the database by calling save_to_db() function that we have defined earlier. 
 - Remember, only pass the ID. 
@@ -74,14 +80,17 @@ pip install boto3
 ```python
 save_to_db(id)
 ```
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/2-lab-choreographMicroservices/source/lambda-functions/order-service/app.py)
+
 ### Step 7: Working on `logistic-service`
-**You don't need to do anything.** This is already been provided in the `work/lambda-functions/logistic-service/app.py` file as a partial code. Additional tasks needs to be done after finishing Step 17.
+**You don't need to do anything.** This is already been provided in the `work/lambda-functions/logistic-service/app.py` file as a **partial** code. Additional tasks needs to be done after finishing Step 17.
 
 ### Step 8: Working on `invoice-service`
 **You don't need to do anything.** This is already been provided in the `work/lambda-functions/invoice-service/app.py` file as a complete code.
 
 ### Step 9: Working on `fulfilment-service`
-**You don't need to do anything.** This is already been provided in the `work/lambda-functions/fulfilment-service/app.py` file as a partial code. Additional tasks needs to be done after finishing Step 17.
+**You don't need to do anything.** This is already been provided in the `work/lambda-functions/fulfilment-service/app.py` file as a **partial** code. Additional tasks needs to be done after finishing Step 17.
 
 ### Step 10: Working on `forecasting-service`
 **You don't need to do anything.** This is already been provided in the `work/lambda-functions/forecasting-service/app.py` file as a complete code.
@@ -104,12 +113,18 @@ save_to_db(id)
 >**💡 HINT**
 >- Use EventPattern object to create the pattern for Amazon EventBridge. Here's the [API reference](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_events/EventPattern.html).
 
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/2-lab-choreographMicroservices/source/cdk/app.py)
+
 ### Step 13: Create EventBridge Rule
 - Create EventBridge rule for order_created
 - Add 3 targets into this rule. This way, you define how this rule should matched and sent to designated targets.
 
 >**💡 HINT**
 >- Use Rule construct to define the EventBridge rule. Here's the [API reference](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_events/Rule.html).
+
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/2-lab-choreographMicroservices/source/cdk/app.py)
 
 ### Step 14: Review Amazon API GAteway Integration
 - Noticed the Amazon API Gateway integration with `order_service`. It is declared with GET method and resource URI as `/order`. 
@@ -167,16 +182,25 @@ Next steps are optional and feel free to clean this workshop if you don't want t
 - Open app.py
 - Complete the task to send event as `fulfilment_completed` so `logistic_service` could receive the message.
 
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/2-lab-choreographMicroservices/source/lambda-functions/fulfilment-service/app.py)
+
 #### Working on `logistic-service`
 - Navigate to `work/lambda-functions/logistic-service/`
 - Open app.py
 - Complete the task to parse the event from Amazon EventBridge
 - Save the data into DynamoDB
 
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/2-lab-choreographMicroservices/source/lambda-functions/logistic-service/app.py)
+
 #### Updating CDK app
 - Navigate to `work/cdk/`
 - Open app.py
 - Find `[ADDITIONAL TASK]` and create EventBridge pattern and rule for message `fulfilment_completed`
+
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/2-lab-choreographMicroservices/source/cdk/app.py)
 
 ### Step 19: Redeploy the CDK App
 - Open your terminal

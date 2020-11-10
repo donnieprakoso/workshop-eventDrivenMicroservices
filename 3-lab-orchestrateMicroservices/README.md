@@ -46,13 +46,18 @@ pip install boto3
 > **💡 HINT**   
 > - Use LambdaInvoke construct to create a task. Here's the [API reference](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_stepfunctions_tasks/LambdaInvoke.html).
 > - If you're not using AWS Lambda function, you can use other available constructs to build a task.
+
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/3-lab-orchestrateMicroservices/source/cdk/app.py)
+
 ### Step 3: Create two states
 - You need to create two states and oth categorized as `Succeed` for `approved` and `rejected`. 
 
-
-
 > **💡 HINT**
 > - Use `Succeed` construct to define the state. Here's the [API reference](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_stepfunctions/Succeed.html).
+
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/3-lab-orchestrateMicroservices/source/cdk/app.py)
 
 ### Step 4: Create a parallel
 - Create a parallel to run 2 tasks at the same time: `verify-identity` and `check-address`. 
@@ -61,12 +66,18 @@ pip install boto3
 > **💡 HINT**
 > - Use `Parallel` construct to run one or more tasks at the same time. Here's the [API reference](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_stepfunctions/Parallel.html).
 
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/3-lab-orchestrateMicroservices/source/cdk/app.py)
+
 ### Step 5: Last piece, you need to create a state machine. 
 - Use `StateMachine` construct to complete this task. 
 - Noticed that the `definition` is already defined, started by `s_verification` and the next destination is `c_human_review`. 
 
 >**💡 HINT**
 > - Here's the [API reference](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_stepfunctions/StateMachine.html).
+
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/3-lab-orchestrateMicroservices/source/cdk/app.py)
 
 ### Step 6: Install all required libraries to build and run CDK app
 - Open your terminal

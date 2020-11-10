@@ -21,24 +21,28 @@ pip install boto3
 - Navigate to `work/lambda-functions/` 
 - You will find another 2 sub-directories named `consume-function` and `dispatch-function` 
 
-### Step 1: Create Producer with AWS Lambda
+### Step 1: Open Producer file
 - Navigate to `work/lambda-functions/dispatch-function`
 - Open `app.py`
-- Create a basic AWS Lambda function that returns "Message dispatched" string.
+- Read the file thoroughly as starting from next steps, you need to work on this file.
+
 
 ### Step 2: Sending an event
 - Send an event to Amazon EventBridge with this following info:
 	- Source: lab1-bdc-dispatch
 	- DetailType: message-received
-	- Detail: < Need to be in JSON format >
+	- Detail: [Need to be in JSON format]
 		```json
-		{"title":"This is a test message", "test": True} 
+		{"title":"This is a test message", "test": true} 
 		```
 	- EventBusName: < Need to obtain from environment variable named: "EVENT_BUS_NAME" >
 
 >**💡 HINT**
 >- You need to create a client to connect to AWS resources. On Python, you need to use boto3 library. 
 >- Use put_events() API to send event to Amazon EventBridge. Here's the [link](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events.html).
+
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/1-lab-basicDispatchConsumeEvent/source/lambda-functions/dispatch-function/app.py)
 
 ### Step 3: Create Consumer with AWS Lambda
 - Navigate to `work/lambda-functions/consume-function`
@@ -47,6 +51,9 @@ pip install boto3
 
 >**💡 HINT**
 >- Python `print` command in AWS Lambda Functions will send the output to Amazon CloudWatch Logs. 
+
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/1-lab-basicDispatchConsumeEvent/source/lambda-functions/consume-function/app.py)
 
 ### Step 4: Create an AWS CDK app
 - Navigate to `work/cdk/`
@@ -79,6 +86,9 @@ pip install boto3
 >**💡 HINT**
 >- Defining Amazon EventBridge rule is quite straightforward. Here's the API reference [link](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_events/Rule.html).
 >- Don't forget to add the target to this rule. Amazon EventBridge provides various integration for AWS services. Here's the API reference [link](https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_events_targets/LambdaFunction.html) to attach to AWS Lambda Function.
+
+> ### 😕 Are you stuck?
+> See the solution [here](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/blob/master/1-lab-basicDispatchConsumeEvent/source/cdk/app.py)
 
 ### Step 10: Tagging your AWS CDK App
 - You need to open `app.py` and add these following lines. It's pretty handy to keep these lines so you can tag your CDK app.
@@ -119,7 +129,7 @@ cdk deploy
 Now we are going to test the Producer function which will trigger an event to Amazon EventBridge and will be consumed by the Consumer function as well as print the logs into CloudWatch. 
 
 - Create a test event by choosing **Test** in the upper right corner
-- In the Configure test event page, choose **Create new test event** and in Event template, leave the default Hello World option. Enter an Event name and provide an empty response:
+- In the Configure test event page, choose **Create new test event** and in Event template, leave the default Hello World option. Enter an Event name and provide an empty template:
 ```json
 {}
 ``` 
