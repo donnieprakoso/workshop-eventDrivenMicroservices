@@ -101,6 +101,8 @@ cdk deploy
 - Review the definition in visual representation by clicking on the `Definition` tab. It must be look like the diagram above.
 - We are going to do 3 scenarios to test the state machine.
 
+![Lab 3: State Machine Visual Definition](https://raw.githubusercontent.com/donnieprakoso/workshop-eventDrivenMicroservices/master/3-lab-orchestrateMicroservices/lab3-definition.png)
+ 
 #### Testing Scenario 1: Auto Approved
 - Click `Start Execution` button on the upper right. 
 - On the input, copy and paste JSON below:
@@ -114,6 +116,8 @@ cdk deploy
 ```
 - Click `Start Execution` and wait until it's finished.
 - Your state machine should automatically approve the application.
+
+![Lab 3: Scenario 1](https://raw.githubusercontent.com/donnieprakoso/workshop-eventDrivenMicroservices/master/3-lab-orchestrateMicroservices/lab3-scenario1.png)
 
 #### Testing Scenario 2: Approved with Human Review Checking
 - Click `New Execution` button on the upper right. 
@@ -129,6 +133,8 @@ cdk deploy
 - Click `Start Execution` and wait until it's finished.
 - Your state machine should went to `Human Review Required` before it went to `Approve Application`
 
+![Lab3: Scenario 2](https://raw.githubusercontent.com/donnieprakoso/workshop-eventDrivenMicroservices/master/3-lab-orchestrateMicroservices/lab3-scenario2.png)
+
 #### Testing Scenario 3: Rejected with Human Review Checking
 - Click `New Execution` button on the upper right. 
 - On the input, copy and paste JSON below:
@@ -142,6 +148,8 @@ cdk deploy
 ```
 - Click `Start Execution` and wait until it's finished.
 - Your state machine should went to `Human Review Required` before it went to `Reject Application`
+
+![Lab3: Scenartio 3](https://raw.githubusercontent.com/donnieprakoso/workshop-eventDrivenMicroservices/master/3-lab-orchestrateMicroservices/lab3-scenario3.png)
 
 ---
 

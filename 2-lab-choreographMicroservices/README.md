@@ -198,7 +198,7 @@ cdk deploy
 - Open the table.
 - You will see that a record just been created with recent timestamp for `order-service`, `invoice-service`, `fulfilment-service`, `forecasting-service` and lastly `logistic-service`
 
-![Lab 2: DynamoDB Table](https://raw.githubusercontent.com/donnieprakoso/workshop-eventDrivenMicroservices/master/2-lab-choreographMicroservices/lab2-dynamodb-3.png)
+![Lab 2: DynamoDB Table](https://raw.githubusercontent.com/donnieprakoso/workshop-eventDrivenMicroservices/master/2-lab-choreographMicroservices/lab2-dynamodb-2.png)
 
 # 🤘🏻Congrats! 
 You've just finished the Lab 2.
