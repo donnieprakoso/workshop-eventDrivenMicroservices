@@ -5,7 +5,7 @@ import os
 
 
 logger = logging.getLogger()
-logger.setLevel(logging.INFO
+logger.setLevel(logging.INFO)
 
 def handler(event, context):
     try:                

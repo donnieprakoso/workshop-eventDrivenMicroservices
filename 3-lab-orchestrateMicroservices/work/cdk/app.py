@@ -88,13 +88,13 @@ class CdkStack(core.Stack):
                 _sfn.Condition.boolean_equals("$[0].humanReviewRequired",
                                               False),
                 _sfn.Condition.boolean_equals("$[1].humanReviewRequired",
-                                              True)), state_approve)
+                                              False)), state_approve)
         c_human_review.when(
             _sfn.Condition.or_(
                 _sfn.Condition.boolean_equals("$[0].humanReviewRequired",
                                               True),
                 _sfn.Condition.boolean_equals("$[1].humanReviewRequired",
-                                              False)), task_wait_review)
+                                              True)), task_wait_review)
 
         # Another choice state to check if the application passed the review
         c_review_approved = _sfn.Choice(self, "Review approved?")
