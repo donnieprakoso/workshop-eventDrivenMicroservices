@@ -1,3 +1,6 @@
+## Translation
+[English](README.md) | [Bahasa Indonesia](README-id.md)
+
 ## 🚀 Welcome to the Event-Driven Microservices workshop with AWS
 
 In this workshop, you will build and deploy a series of simple microservices with an event-driven architecture approach.
@@ -10,14 +13,14 @@ The content of this workshop will be updated regularly and if you have questions
 This repo consists of 3 workshops:
 
 #### **Lab 1: Basic Dispatch and Consume**
-In this workshop, you will build 2 AWS Lambda Functions. One AWS Lambda Function (as the Pproducer) will dispatch events, and one AWS Lambda Function (as the Consumer) to receive events. In addition to receiving events, the Consumer will also print logs to AWS CloudWatch Logs to ensure the flow is going well.
+In this workshop, you will build 2 AWS Lambda Functions. One AWS Lambda Function (as the Producer) will dispatch events, and one AWS Lambda Function (as the Consumer) to receive events. In addition to receiving events, the Consumer will also print logs to AWS CloudWatch Logs to ensure the flow is going well.
 
 [💻 Start This Workshop](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/tree/master/1-lab-basicDispatchConsumeEvent)
 
 #### **Lab 2: Building Choreographed Microservices**
 As a continuation of the previous workshop, in this workshop, you will do a more complex system that uses multiple microservices. You will learn how to combine synchronous and asynchronous communication as it's a commonly used pattern in building microservices.
 
-You will build an HTTP API with Amazon API Gateway, and AWS Lambda Function. In the background, the HTTP API will dispatch events to Amazon EventBridge for backend processing. The event will be consumed by 4 other microservices represented by AWS Lambda Functions. Communication between microservices on the backend will run asynchronously by applying a choreographed approach using Amazon EventBridge.
+You will build an HTTP API with Amazon API Gateway and AWS Lambda Function. In the background, the HTTP API will dispatch events to Amazon EventBridge for backend processing. The event will be consumed by 4 other microservices represented by AWS Lambda Functions. Communication between microservices on the backend will run asynchronously by applying a choreographed approach using Amazon EventBridge.
 
 [💻 Start This Workshop](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/tree/master/2-lab-choreographMicroservices)
 
@@ -75,7 +78,7 @@ Lab Name | Level | Duration
 [Lab 2 - Building Choreographed Microservices](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/tree/master/2-lab-choreographMicroservices) | Intermediate | 30 mins
 [Lab 3 - Orchestrating Microservices](https://github.com/donnieprakoso/workshop-eventDrivenMicroservices/tree/master/3-lab-orchestrateMicroservices) | Intermediate | 15 mins
 
-### **💡 HINT** and 😕 Are you stuck? 
+### **💡 HINT** and **😕 Are you stuck?**
 For the more complex tasks that you need to complete, there will be a **💡 HINT** to guide you on how to solve it. Most of the time, it will also include link(s) for further reading. 
 
 Please remember that if you are stuck and can't move to the next step, you can always see the main reference file to see the solution. For easy access, **😕 Are you stuck?** will guide you directly to the solution.

@@ -1,4 +1,6 @@
 # Lab 2: Building Choreographed Microservices  
+[English](README.md) | [Bahasa Indonesia](README-id.md)
+
 As a continuation of the previous workshop, in this workshop, you will do a more complex system that uses multiple microservices. You will learn how to combine synchronous and asynchronous communication as it's a commonly used pattern in building microservices.
 
 You will build an HTTP API with Amazon API Gateway, and AWS Lambda Function. In the background, the HTTP API will dispatch events to Amazon EventBridge for backend processing. The event will be consumed by 4 other microservices represented by AWS Lambda Functions. Communication between microservices on the backend will run asynchronously by applying a choreography approach using Amazon EventBridge.
