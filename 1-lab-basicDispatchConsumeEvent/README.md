@@ -130,12 +130,13 @@ cdk deploy
 #### Invoking Producer Function
 Now we are going to test the Producer function which will trigger an event to Amazon EventBridge and will be consumed by the Consumer function as well as print the logs into CloudWatch. 
 
-- Create a test event by clicking **Test** button in the Lambda code editor menubar 
-- In the Configure test event page, choose **Create new test event** and in Event template, leave the default Hello World option. Enter an Event name and provide an empty template:
+- Navigate to the **Test** page by clicking the **Test** tab
+- In the configure Test event page, choose **New event** and in Event template, leave the default Hello World option. 
+- Enter an Event name and provide an empty template:
 ```json
 {}
 ``` 
-- Choose **Create** and then choose **Test**.
+- Click **Save changes** and then click **Test**.
 
 #### Let's check the log on Amazon CloudWatch Logs
 - Navigate to Amazon CloudWatch Log groups [dashboard](https://ap-southeast-1.console.aws.amazon.com/cloudwatch/home?region=ap-southeast-1#logsV2:log-groups).

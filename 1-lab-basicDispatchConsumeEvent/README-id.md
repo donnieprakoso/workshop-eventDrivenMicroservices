@@ -1,7 +1,7 @@
 # Lab 1: Pengiriman dan Penerimaan Dasar
 [English](README.md) | [Bahasa Indonesia](README-id.md)
 
-Dalam _workshop_ ini, Anda akan membangun 2 fungsi AWS Lambda. Satu fungsi AWS Lambda (sebagai Produsen) akan mengirimkan (_dispatch_) _event_, dan satu Fungsi AWS Lambda (sebagai Konsumen) akan menerima (_consume_) _event_. Selain menerima _event_, Konsumen juga akan menulis log ke AWS CloudWatch Logs untuk memastikan aliran prosesnya berjalan dengan baik.
+Dalam _workshop_ ini, Anda akan membangun 2 fungsi AWS Lambda. Satu fungsi AWS Lambda (sebagai _producer_) akan mengirimkan (_dispatch_) _event_, dan satu Fungsi AWS Lambda (sebagai _consumer_) akan menerima (_consume_) _event_. Selain menerima _event_, Konsumen juga akan menulis log ke AWS CloudWatch Logs untuk memastikan aliran prosesnya berjalan dengan baik.
 
 ## Diagram
 ![Diagram Lab 1](lab1-diagram-id.png)
@@ -136,12 +136,13 @@ cdk deploy
 #### Menjalankan Fungsi Pengirim
 Sekarang kita akan menguji fungsi Pengirim yang akan mengirim sebuah _event_ ke Amazon EventBridge. Fungsi penerima akan mengkonsumsi _event_ ini dan juga mencatatnya sebagai log ke Cloudwatch.
 
-- Buat sebuah _test event_ dengan mengklik tombol **Test** di bagian menu _code editor_ Lambda
-- Di jendela Configure test event, pilih **Create new test event** dan di bagian Event template, biarkan pilihan standar Hello World. Masukkan nama event di kolom Event name dan tuliskan templat kosong:
+- Klik tab **Test** untuk masuk ke halaman **Test**
+- Di halaman pengaturan Test event, pilih **Create new test event** dan di bagian Event template, biarkan pilihan standar Hello World
+- Masukkan nama event di kolom Event name dan tuliskan templat kosong:
 ```json
 {}
 ``` 
-- Klik tombol **Create** lalu klik lagi tombol **Test**
+- Klik **Save changes** lalu klik lagi tombol **Test**
 
 #### Ayo periksa log di Amazon CloudWatch Logs
 - Masuk ke [dashboard](https://ap-southeast-1.console.aws.amazon.com/cloudwatch/home) Amazon CloudWatch Log groups
