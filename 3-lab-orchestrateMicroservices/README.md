@@ -1,4 +1,6 @@
 # Lab 3: Orchestrating Microservices
+[English](README.md) | [Bahasa Indonesia](README-id.md)
+
 Besides choreography, we also need to understand another approach, widely known as orchestration. In this lab, you will build a state machine to manage orchestration between microservices.
 
 In this workshop, you will build a simple banking system that has 4 domains. This system aims to perform assessment and validation before opening an account at a bank.
@@ -160,7 +162,7 @@ cdk deploy
 - Click `Start Execution` and wait until it's finished.
 - Your state machine should went to `Human Review Required` before it went to `Reject Application`
 
-![Lab3: Scenartio 3](https://raw.githubusercontent.com/donnieprakoso/workshop-eventDrivenMicroservices/master/3-lab-orchestrateMicroservices/lab3-scenario3.png)
+![Lab3: Scenario 3](https://raw.githubusercontent.com/donnieprakoso/workshop-eventDrivenMicroservices/master/3-lab-orchestrateMicroservices/lab3-scenario3.png)
 
 ---
 

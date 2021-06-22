@@ -1,4 +1,6 @@
 # Lab 1: Basic Dispatch Consume
+[English](README.md) | [Bahasa Indonesia](README-id.md)
+
 In this workshop, you will build 2 AWS Lambda Functions. One AWS Lambda Function (as the producer) will dispatch events, and one AWS Lambda Function (as the consumer) to receive events. In addition to receiving events, Consumer will also print logs to AWS CloudWatch Logs to ensure the flow is going well.
 
 ## Diagram
@@ -128,15 +130,16 @@ cdk deploy
 #### Invoking Producer Function
 Now we are going to test the Producer function which will trigger an event to Amazon EventBridge and will be consumed by the Consumer function as well as print the logs into CloudWatch. 
 
-- Create a test event by choosing **Test** in the upper right corner
-- In the Configure test event page, choose **Create new test event** and in Event template, leave the default Hello World option. Enter an Event name and provide an empty template:
+- Navigate to the **Test** page by clicking the **Test** tab
+- In the configure Test event page, choose **New event** and in Event template, leave the default Hello World option. 
+- Enter an Event name and provide an empty template:
 ```json
 {}
 ``` 
-- Choose **Create** and then choose **Test**.
+- Click **Save changes** and then click **Test**.
 
 #### Let's check the log on Amazon CloudWatch Logs
-- Navigate to Amazon CloudWatch [dashboard](https://ap-southeast-1.console.aws.amazon.com/cloudwatch/home).
+- Navigate to Amazon CloudWatch Log groups [dashboard](https://ap-southeast-1.console.aws.amazon.com/cloudwatch/home?region=ap-southeast-1#logsV2:log-groups).
 - Find the logs for the **Consumer** function. To filter based on the name, you can type "BasicDispatchConsume" on the filter text input. 
 - Find and open the latest Log Stream.
 - If you see there's a JSON with data from event passed by the **Producer** via Amazon EventBridge, then you've completed this workshop.
