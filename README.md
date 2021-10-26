@@ -9,6 +9,9 @@ The main objective of this workshop is to build a foundation of extending and sc
 
 The content of this workshop will be updated regularly and if you have questions or find issues in this workshop, please file them as an Issue.
 
+## Feedback is Welcome
+Please help us to provide your feedback. Participants who complete the surveys from AWS Innovate Online Conference - Modern Applications Edition will receive a gift code for USD25 in AWS credits. AWS credits will be sent via email by 30 November, 2021. [Feedback link is here](https://amazonmr.au1.qualtrics.com/jfe/form/SV_6x7UgBL9FHn59dA?Session=HOL7).
+
 ## Workshop Structure
 This repo consists of 3 workshops:
 
@@ -101,4 +104,8 @@ All of the labs in this workshop use a standardized cleaning method with AWS CDK
 2. Change the directory to `cdk /`
 3. Run `cdk destroy`
 4. If in some cases it fails, you need to go to [AWS CloudFormation](https://console.aws.amazon.com/cloudformation/) to manually delete the stack.
+
+
+## Feedback is Welcome
+Please help us to provide your feedback. Participants who complete the surveys from AWS Innovate Online Conference - Modern Applications Edition will receive a gift code for USD25 in AWS credits. AWS credits will be sent via email by 30 November, 2021. [Feedback link is here](https://amazonmr.au1.qualtrics.com/jfe/form/SV_6x7UgBL9FHn59dA?Session=HOL7).
 
